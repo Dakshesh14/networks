@@ -1,0 +1,1 @@
+console.log('Look js is ready');

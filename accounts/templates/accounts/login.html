@@ -1,0 +1,26 @@
+{% extends 'backend/layouts.html' %}
+
+<!-- to edit title -->
+{% block title %}Login {% endblock %} {% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <form method="POST" action="/accounts/login">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required/>
+                </div>
+                <strong class="text-danger">{{ message }}</strong>
+                <a href="{% url 'accounts:register' %}">Don't Have Account? Register</a><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

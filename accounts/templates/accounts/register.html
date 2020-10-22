@@ -1,0 +1,48 @@
+{% extends 'backend/layouts.html' %}
+
+<!-- to edit title -->
+{% block title %}Register {% endblock %} {% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <form method="POST" enctype="multipart/form-data" action="/accounts/register">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required />
+                    <div id="emailHelp" class="form-text">Other Users can also see.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" />
+                    <div id="emailHelp" class="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" maxlength="10" minlength="10"
+                        required />
+                </div>
+                <div class="form-file">
+                    <input type="file" class="form-file-input" id="profile_pic" accept="image/*" name="profile_pic" required />
+                    <label class="form-file-label" for="profile_pic">
+                        <span class="form-file-text">Choose Image...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1" required />
+                </div>
+                <div class="mb-3">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2" required />
+                </div>
+                <strong class="text-danger">{{ message }}</strong>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

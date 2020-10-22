@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networks - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'backend/CSS/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/CSS/bootstrap.min.css' %}">
+</head>
+<body>
+    {% include 'backend/navbar.html' %}
+    {% block body %}
+    {% endblock %}
+    <script src="{% static 'backend/JS/getToken.js' %}"></script>
+    <script src="{% static 'backend/JS/index.js' %}"></script>
+    <script src="{% static 'backend/JS/bootstrap.bundle.js' %}"></script>
+</body>
+</html>
